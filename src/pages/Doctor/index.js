@@ -28,7 +28,6 @@ const Doctor = ({navigation}) => {
       .limitToLast(3)
       .once('value')
       .then(res => {
-        console.log('top rated doctors: ', res.val());
         if (res.val()) {
           const oldData = res.val();
           const data = [];
@@ -38,7 +37,6 @@ const Doctor = ({navigation}) => {
               data: oldData[key],
             });
           });
-          console.log('data hasil parse: ', data);
           setDoctors(data);
         }
       })
