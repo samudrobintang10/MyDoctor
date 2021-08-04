@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
   DoctorCategory,
   Gap,
   HomeProfile,
   NewsItem,
-  RatedDoctor
+  RatedDoctor,
 } from '../../components';
-import { Fire } from '../../config';
-import { colors, fonts, showError } from '../../utils';
+import {Fire} from '../../config';
+import {colors, fonts, showError} from '../../utils';
 
 const Doctor = ({navigation}) => {
   const [news, setNews] = useState([]);
@@ -51,7 +51,9 @@ const Doctor = ({navigation}) => {
       .once('value')
       .then(res => {
         if (res.val()) {
-          setCategoryDoctor(res.val());
+          const data = res.val();
+          const filterData = data.filter(el => el !== null);
+          setCategoryDoctor(filterData);
         }
       })
       .catch(err => {
@@ -65,7 +67,9 @@ const Doctor = ({navigation}) => {
       .once('value')
       .then(res => {
         if (res.val()) {
-          setNews(res.val());
+          const data = res.val();
+          const filterData = data.filter(el => el !== null);
+          setNews(filterData);
         }
       })
       .catch(err => {
@@ -93,7 +97,7 @@ const Doctor = ({navigation}) => {
                     <DoctorCategory
                       key={item.id}
                       category={item.category}
-                      onPress={() => navigation.navigate('ChooseDoctor')}
+                      onPress={() => navigation.navigate('ChooseDoctor', item)}
                     />
                   );
                 })}
@@ -110,7 +114,7 @@ const Doctor = ({navigation}) => {
                   avatar={{uri: doctor.data.photo}}
                   name={doctor.data.fullName}
                   desc={doctor.data.profession}
-                  onPress={() => navigation.navigate('DoctorProfile')}
+                  onPress={() => navigation.navigate('DoctorProfile', doctor)}
                 />
               );
             })}

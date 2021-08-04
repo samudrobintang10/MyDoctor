@@ -23,7 +23,6 @@ const UserProfile = ({navigation}) => {
 
   const signOut = () => {
     Fire.auth().signOut().then(res => {
-      console.log('success sign out');
       navigation.replace('GetStarted');
     }).catch(err => {
       showMessage({

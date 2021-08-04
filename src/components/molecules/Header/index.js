@@ -5,12 +5,11 @@ import {Button, Gap} from '../../atoms';
 import DarkProfile from './DarkProfile';
 
 const Header = ({onPress, title, type}) => {
-  if(type === 'dark-profile') {
-    return <DarkProfile onPress={onPress}/>
+  if (type === 'dark-profile') {
+    return <DarkProfile onPress={onPress} />;
   }
   return (
     <View style={styles.container(type)}>
-      {/* <IconBackDark /> */}
       <Button
         type="icon-only"
         icon={type === 'dark' ? 'back-light' : 'back-dark'}
@@ -40,5 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: fonts.primary[600],
     color: type === 'dark' ? colors.white : colors.text.primary,
+    textTransform: 'capitalize',
   }),
 });
