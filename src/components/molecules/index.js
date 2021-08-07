@@ -5,6 +5,7 @@ import DoctorCategory from './DoctorCategory';
 import RatedDoctor from './RatedDoctor';
 import NewsItem from './NewsItem';
 import ListHospital from './ListHospital';
+import InputChat from './InputChat';
 import ChatItem from './ChatItem';
 import List from './List';
 import Profile from './Profile';
@@ -18,6 +19,7 @@ export {
   DoctorCategory,
   RatedDoctor,
   NewsItem,
+  InputChat,
   List,
   ListHospital,
   ChatItem,

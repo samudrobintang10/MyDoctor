@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Button, Gap, Header, Profile, ProfileItem} from '../../components';
-import {colors} from '../../utils';
+import { StyleSheet, View } from 'react-native';
+import { Button, Gap, Header, Profile, ProfileItem } from '../../components';
+import { colors } from '../../utils';
 
 const DoctorProfile = ({navigation, route}) => {
   const dataDoctor = route.params;
@@ -23,7 +23,7 @@ const DoctorProfile = ({navigation, route}) => {
       <View style={styles.action}>
         <Button
           title="Start Consultation"
-          onPress={() => navigation.navigate('Chatting')}
+          onPress={() => navigation.navigate('Chatting', dataDoctor)}
         />
       </View>
     </View>
