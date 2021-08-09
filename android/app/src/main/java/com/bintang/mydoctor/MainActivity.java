@@ -1,4 +1,4 @@
-package com.mydoctor;
+package com.bintang.mydoctor;
 
 import com.facebook.react.ReactActivity;
 
